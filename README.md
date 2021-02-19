@@ -40,6 +40,27 @@ self.tabs[i].content.load(QUrl.fromUserInput("http://google.com"))
 
 ### Implementing QtSplitter
 
+```
+def AddTab(self):
+        ...
+        
+        self.tabs[i].content = QWebEngineView()
+        self.tabs[i].content.load(QUrl.fromUserInput("http://google.com"))
+
+        self.tabs[i].content1 = QWebEngineView()
+        self.tabs[i].content1.load(QUrl.fromUserInput("http://google.com"))
+        ...
+        
+        self.tabs[i].splitview = QSplitter()
+        self.tabs[i].splitview.setOrientation(Qt.Vertical)
+        self.tabs[i].layout.addWidget(self.tabs[i].splitview)
+
+        self.tabs[i].splitview.addWidget(self.tabs[i].content)
+        self.tabs[i].splitview.addWidget(self.tabs[i].content1)
+```
+
+
+<img width="685" alt="day30p1" src="https://user-images.githubusercontent.com/69995236/108560617-e0217900-72b1-11eb-92ca-721abbdfb44c.PNG">
 
 
 
