@@ -24,8 +24,22 @@ self.tabs[i].content.load(QUrl.fromUserInput("http://google.com"))
             url = QUrl(self.findChild(QWidget, tab).content.url()).toString()
             self.AddressBar.setText(url)
 ```
+### Enable switch tabs
+
+```
+    def SwitchTab(self, i):
+        #Switch to tab, get currents tabs tabData ("tab0") and find object with that name
+        if self.tabbar.tabData(i):
+            tab = self.tabbar.tabData(i)["object"]
+            self.container.layout.setCurrentWidget(self.findChild(QWidget, tab))
+            self.SetAddressBar(i)
+            print(self.tabs[i].content.nativeParentWidget())
+```
 
 <img width="681" alt="day30p2" src="https://user-images.githubusercontent.com/69995236/108560199-3cd06400-72b1-11eb-8e59-4a006bbc80fb.PNG">
+
+### Implementing QtSplitter
+
 
 
 
