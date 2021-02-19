@@ -5,4 +5,26 @@
 Following the Udemy Course: 'The Complete Python 3 Course: Beginner to Advanced!'. I created a working web browser with PyQt5.
 
 
+### QWebEngine implementation
+
+```
+self.tabs[i].content = QWebEngineView()
+self.tabs[i].content.load(QUrl.fromUserInput("http://google.com"))
+        
+```
+<img width="682" alt="day29p2" src="https://user-images.githubusercontent.com/69995236/108559606-60df7580-72b0-11eb-934b-a47c42146692.PNG">
+
+### Set up the web address bar
+
+```
+    def SetAddressBar(self, i):
+        # Get the current tabs index, and set the address bar to its title.toString()
+        tab = self.tabbar.tabData(i)["object"]
+        if self.findChild(QWidget, tab).content == True:
+            url = QUrl(self.findChild(QWidget, tab).content.url()).toString()
+            self.AddressBar.setText(url)
+```
+
+            
+
 
